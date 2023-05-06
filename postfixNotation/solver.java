@@ -16,7 +16,7 @@ public class solver {
 	            "Result: "  + result);
 	}
 	
-    //
+    //prompt user to input values for expressions
 	public static String getExpression() {
 		String str = JOptionPane.showInputDialog(null, "Please enter numerical infix expression 3 and 20 characters: ");
 		boolean valid = validateInfixExpression(str);
@@ -30,6 +30,7 @@ public class solver {
 		return str;
 	}
 	
+    //set order of precedence as per BOMDAS rule
 	public static int precedence(char operator){
         switch (operator){
             case '^':
@@ -45,6 +46,7 @@ public class solver {
         }
     }
 	
+    //use ReGex for validation of characters and check that characters match rulings
 	public static boolean validateInfixExpression(String expressions) {
 		boolean chars = Pattern.compile("^[\\d+*\\/\\^(\\)\\-]*$").matcher(expressions).matches();
 		boolean length = expressions.length() >= 3 && expressions.length() <= 20;
@@ -74,6 +76,7 @@ public class solver {
 		
 	}
 	
+    //method to decide whether character should be pushed to which side of stack
 	public static String getPostfix(String infix) {
 		StringBuffer postfix = new StringBuffer(infix.length());
 		postfixStack stack = new stackArray();
@@ -109,6 +112,7 @@ public class solver {
 		return postfix.toString();
 	}
 	
+    //fruther evaluation of expression and calculation rulings
 	public static double evaluatePostfix(String postfix) {
 		double x, y, result = 0;
 		postfixStack stack = new stackArray();
