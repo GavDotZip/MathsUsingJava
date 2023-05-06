@@ -1,0 +1,1 @@
+Using stacks, this program reads in numerical inputs and converts the infix expression to the postfix. From here the program will then solve the expression using the rules of BOMDAS.
